@@ -26,7 +26,11 @@
             @endif
         </div>
 
-        <h6 class="card-subtitle mb-2 text-body-secondary"><a href="/register">¿No tienes una cuenta?</a></h6>
+        <p>
+            <h6 class="card-subtitle mb-2 text-body-secondary"><a href="/register">¿No tienes una cuenta?</a></h6>
+            <h6 class="card-subtitle mb-2 text-body-secondary"><a href="/">Inicio</a></h6>
+        </p>
+
         <button class="w-100 btn btn-lg btn-primary" type="submit">Iniciar sesión</button>
 
     </form>
