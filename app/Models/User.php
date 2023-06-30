@@ -48,13 +48,13 @@ class User extends Authenticatable
     }
 
     //an user can have one or more roles    
-    public function roles()
+    public function role()
     {
         return $this->belongsToMany(Role::class, 'users_roles');
     }
 
     //an user can have one or more profiles  
-    public function profiles()
+    public function profile()
     {
         return $this->belongsToMany(Profile::class, 'users_profiles');
     }

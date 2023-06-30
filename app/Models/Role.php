@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
-    use HasFactory;
+    protected $table = 'roles';
 
     //a role can be owned by one or more users    
-    public function users()
+    public function user()
     {
         return $this->belongsToMany(User::class, 'users_roles');
     }
