@@ -67,7 +67,8 @@ class UserController extends Controller
         $user->email = $request->input('email');
         $user->save();
 
-        return view('users.update');    
+        return view('users.update');   
+        //return redirect('/users')->with('success', 'Cuenta actualizada exitosamente'); 
     }
 
     /**
