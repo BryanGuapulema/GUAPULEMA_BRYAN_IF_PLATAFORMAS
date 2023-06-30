@@ -5,8 +5,8 @@
         @auth
         <h1>Dashboard</h1>
         <p class="lead">Solo usuarios autenticados pueden ver este contenido.</p>     
-        <p>BIENVENIDO {{auth()->user()->name ?? auth()->user()->username}} , estás autenticado</p>   
-        <p><a href="/logout">Log out</a></p>
+        <p>BIENVENIDO {{auth()->user()->name ?? auth()->user()->username}} , estás autenticado</p>                       
+
         @endauth
 
         @guest

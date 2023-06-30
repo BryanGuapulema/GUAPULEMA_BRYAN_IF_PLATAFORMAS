@@ -48,7 +48,9 @@
                 </tr>
                 @endforeach
             </tbody>
-
         </table>
+        <a href="/home" class="btn btn-primary btn-sm">
+            Volver al Home
+        </a>
     </div>
 </main>
