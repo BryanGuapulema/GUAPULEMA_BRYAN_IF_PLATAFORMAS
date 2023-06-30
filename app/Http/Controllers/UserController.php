@@ -52,16 +52,32 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        //
+        
+        $request->validate([
+            'name' => 'required',
+            'username'=>'required|unique:users,username,'. $id,    
+            'email'=>'required|unique:users,email,'. $id,                
+        ]);
+
+        $user= User::find($id);
+        $user->name = $request->input('name');
+        $user->username = $request->input('username');
+        $user->email = $request->input('email');
+        $user->save();
+
+        return view('users.update');    
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+
+        return redirect('users');
     }
 }
