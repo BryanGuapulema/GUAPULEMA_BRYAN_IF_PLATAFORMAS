@@ -22,6 +22,11 @@ class RegisterController extends Controller
     //validation is done in request
     public function register(RegisterRequest $request){
         $user = User::create($request->validated());
+
+
+        $user->sendEmailVerificationNotification();
+
+        
         return redirect('/login')->with('success', 'Cuenta creada exitosamente');
     }
 }
