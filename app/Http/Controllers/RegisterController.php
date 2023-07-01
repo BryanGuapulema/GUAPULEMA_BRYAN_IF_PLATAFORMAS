@@ -23,9 +23,9 @@ class RegisterController extends Controller
     public function register(RegisterRequest $request){
         $user = User::create($request->validated());
 
-
+        //it lets to send the email verification message
         $user->sendEmailVerificationNotification();
-
+        
         
         return redirect('/login')->with('success', 'Cuenta creada exitosamente');
     }

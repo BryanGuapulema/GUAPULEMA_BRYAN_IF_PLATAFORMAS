@@ -1,11 +1,4 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
-
+<main>
         <div>
             @if (session('message'))
                 <div class="mb-4 font-medium text-sm text-green-600">
@@ -28,14 +21,11 @@
                     </div>
                 </form>
 
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-
-                    <button type="submit" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-                        {{ __('Log Out') }}
-                    </button>
+                <div class="text-end px-2">        
+                    <a href="/logout" class="btn btn-outline-light me-2">Logout</a>
+                </div>
+                
                 </form>
             </div>
         </div>
-    </x-auth-card>
-</x-guest-layout>
+</main>
