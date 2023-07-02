@@ -30,20 +30,25 @@
             @endif
         </div>
 
-<!--
+
         <div class="form-group form-floating mb-3">
             <label for="floatingName"></label>
             <div class="form-group form-floating mb-3">
                 <select name="role" id="role" class="form-select" required>
                     <option value="">Seleccionar rol</option>                
                     @foreach (\App\Models\Role::all() as $role)
-                    <option value="{{ $role->id }}">{{ $role->name }}</option>
-                @endforeach
+                        <option value="{{ $role->id }}" <?php  echo $role->name ==='Administrador'  ? 'disabled' : ''; ?>>
+                            {{ $role->name }}
+                        </option>                    
+                    @endforeach
                 </select>
-            </div>      
+            </div>   
+            @if ($errors->has('role'))
+                <span class="text-danger text-left">{{ $errors->first('role') }}</span>
+            @endif   
         </div>
 
--->
+
             
         <div class="form-group form-floating mb-3">
             <input type="password" class="form-control" name="password" value="{{ old('password') }}" placeholder="Password" required="required">

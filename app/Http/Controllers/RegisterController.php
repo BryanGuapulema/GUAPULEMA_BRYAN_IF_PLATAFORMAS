@@ -6,6 +6,7 @@ use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Role;
 
 class RegisterController extends Controller
 {
@@ -22,10 +23,16 @@ class RegisterController extends Controller
     //validation is done in request
     public function register(RegisterRequest $request){
         $user = User::create($request->validated());
+        
+        //Obtains role selected in regsiter form        
+        $roles = $request->input('role');
+
+        //Associate role with user in table user_roles with attach method
+        
+        $user->role()->attach($roles);
 
         //it lets to send the email verification message
         $user->sendEmailVerificationNotification();
-        
         
         return redirect('/login')->with('success', 'Cuenta creada exitosamente');
     }

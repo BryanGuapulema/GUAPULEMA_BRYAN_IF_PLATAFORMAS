@@ -20,6 +20,7 @@
                     <th>Nombre de Usuario</th>
                     <th>Rol</th>
                     <th>Correo</th>
+                    <th>Estado</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -31,8 +32,11 @@
                     <td>{{$user->id}}</td>
                     <td>{{$user->name}}</td>
                     <td>{{$user->username}}</td>
-                    <td>USUARIO</td>
-                    <td>{{$user->email}}</td>                
+                    @foreach ($user->role as $role)
+                        <td>{{ $role->name }}</td>
+                    @endforeach                    
+                    <td>{{$user->email}}</td> 
+                    <td>ACTIVO</td>               
                     <td>
                         <a href="{{url('users/' .$user->id .'/edit')}}" class="btn btn-warning btn-sm">
                             Editar

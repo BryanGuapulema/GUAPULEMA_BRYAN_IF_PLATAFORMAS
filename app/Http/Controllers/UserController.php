@@ -58,17 +58,20 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'username'=>'required|unique:users,username,'. $id,    
-            'email'=>'required|unique:users,email,'. $id,                
+            'email'=>'required|unique:users,email,'. $id,               
+            'role'=>'required'            
         ]);
 
         $user= User::find($id);
         $user->name = $request->input('name');
         $user->username = $request->input('username');
         $user->email = $request->input('email');
+        //update role in user_roles
+        $user->role()->sync([$request->input('role')]);
         $user->save();
 
         return view('users.update');   
-        //return redirect('/users')->with('success', 'Cuenta actualizada exitosamente'); 
+        //return redirect('/home')->with('success', 'Cuenta actualizada exitosamente'); 
     }
 
     /**
