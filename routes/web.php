@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\Usercontroller;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -35,7 +36,7 @@ Route::get('/logout', [LogoutController::class, 'logout']);
 
 Route::resource('/users',UserController::class);
 
-
+Route::resource('/roles',RoleController::class);
 
 
 // Rutas de verificación de correo electrónico

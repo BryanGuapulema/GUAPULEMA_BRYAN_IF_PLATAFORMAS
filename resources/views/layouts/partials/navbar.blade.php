@@ -10,7 +10,18 @@
         <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
         <li><a href="#" class="nav-link px-2 text-white">Perfil</a></li> 
         @if(auth()->user()->role()->first()->name ==='Administrador')
-            <li><a href="/users" class="nav-link px-2 text-white">Administrar</a></li> 
+            <li>
+              <div class="dropdown">
+              <a class="nav-link px-2 text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Administrar
+              </a>
+
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/users">Usuarios</a></li>
+                <li><a class="dropdown-item" href="/roles">Roles</a></li>
+              </ul>
+            </div>
+          </li> 
         @endif     
       </ul>
         

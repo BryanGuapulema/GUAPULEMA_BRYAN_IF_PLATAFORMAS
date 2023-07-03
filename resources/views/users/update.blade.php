@@ -30,10 +30,10 @@
     </div>
 
     <div class="container mt-5  d-flex justify-content-center align-items-center">
-        @if(auth()->user()->username==='root')
+        @if(auth()->user()->role()->first()->name ==='Administrador')
             <a href="{{url('users')}}" class="btn btn-secondary" >Regresar</a>
         @else
-            <a href="{{url('login')}}" class="btn btn-secondary">Regresar</a>
+            <a href="{{url('home')}}" class="btn btn-secondary">Regresar</a>
         @endif                
     <div>
 </main>
