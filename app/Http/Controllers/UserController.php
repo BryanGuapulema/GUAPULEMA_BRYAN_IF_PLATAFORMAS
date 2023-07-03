@@ -66,6 +66,7 @@ class UserController extends Controller
         $user->name = $request->input('name');
         $user->username = $request->input('username');
         $user->email = $request->input('email');
+        $user->state = $request->input('state');
         //update role in user_roles
         $user->role()->sync([$request->input('role')]);
         $user->save();

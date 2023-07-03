@@ -36,7 +36,7 @@
                         <td>{{ $role->name }}</td>
                     @endforeach                    
                     <td>{{$user->email}}</td> 
-                    <td>ACTIVO</td>               
+                    <td>{{$user->state}}</td>               
                     <td>
                         <a href="{{url('users/' .$user->id .'/edit')}}" class="btn btn-warning btn-sm">
                             Editar

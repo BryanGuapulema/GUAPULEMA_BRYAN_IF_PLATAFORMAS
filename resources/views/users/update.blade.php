@@ -25,6 +25,7 @@
                 <li class="list-group-item"><b>Username: </b> {{auth()->user()->username}}</li>
                 <li class="list-group-item"><b>Email: </b> {{auth()->user()->email}}</li>            
                 <li class="list-group-item"><b>Rol: </b> {{auth()->user()->role()->first()->name}}</li>  
+                <li class="list-group-item"><b>Rol: </b> {{auth()->user()->state}}</li> 
             </ul>
         </div>
     </div>

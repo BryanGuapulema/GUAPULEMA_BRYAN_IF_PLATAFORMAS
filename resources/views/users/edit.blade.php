@@ -38,7 +38,7 @@
 
             <div class="form-group form-floating mb-3">
                 <label for="floatingName"></label>
-                <div class="form-group form-floating mb-3">
+                <div class="form-group form-floating mb-3" >
                     <select name="role" id="role" class="form-select" required>
                         <option value="">Seleccionar rol</option>                
                         @foreach (\App\Models\Role::all() as $role)                        
@@ -55,6 +55,23 @@
                     <span class="text-danger text-left">{{ $errors->first('role') }}</span>
                 @endif   
             </div>
+            
+            
+            <div class="form-group form-floating mb-3">
+                <label for="state"></label>
+                <div class="form-group form-floating mb-3">
+                    <select name="state" id="state" class="form-select" required>
+                        <option value="">Seleccionar estado</option>
+                        <option value="Activo" {{ $user->state == 'Activo' ? 'selected' : '' }}>Activo</option>
+                        <option value="Inactivo" {{ $user->state == 'Inactivo' ? 'selected' : '' }}>Inactivo</option>
+                    </select>
+                </div>   
+                @if ($errors->has('state'))
+                    <span class="text-danger text-left">{{ $errors->first('state') }}</span>
+                @endif   
+            </div>
+
+            
 
             <a href="{{url('users')}}" class="btn btn-secondary" >Regresar</a>
             <button class="btn btn-success" type="submit">Guardar</button>

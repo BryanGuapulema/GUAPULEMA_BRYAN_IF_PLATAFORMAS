@@ -22,7 +22,7 @@ class RegisterController extends Controller
     //use of an request object for specific controller
     //validation is done in request
     public function register(RegisterRequest $request){
-        $user = User::create($request->validated());
+        $user = User::create($request->validated());        
         
         //Obtains role selected in regsiter form        
         $roles = $request->input('role');

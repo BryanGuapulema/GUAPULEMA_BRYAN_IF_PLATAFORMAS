@@ -11,7 +11,7 @@
         @if($errors->any())
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
             <ul>
-                @foreach(errors->all() as $error)
+                @foreach($errors->all() as $error)
                     <li>{{$error}}</li>
                 @endforeach
             </ul>
@@ -39,16 +39,16 @@
             <div class="mb-3 row">
                 <label for="estado" class="col-sm-2 col-form-label">Estado</label>
                 <div class="col-sm-5">
-                    <select class="form-select" name="estado" id="estado" value="{{old ('estado')}}" required>
+                    <select class="form-select" name="state" id="state" value="{{old ('state')}}" required>
                         <option value="" >Seleccione el estado</option>
-                        <option value="activo">Activo</option>
-                        <option value="inactivo">Inactivo</option>
+                        <option value="state">Activo</option>
+                        <option value="state">Inactivo</option>
                     </select>
                 </div>
             </div>
+            
+            <a href="{{url('roles')}}" class="btn btn-secondary">Regresar</a>
+            <button type="submit" class="btn btn-success">Guardar</button>
         </form>
-
-        <a href="{{url('roles')}}" class="btn btn-secondary">Regresar</a>
-        <button type="submit" class="btn btn-success">Guardar</button>
     </div>
 </main>

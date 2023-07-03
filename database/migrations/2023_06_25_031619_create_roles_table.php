@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('institution');   
-            $table->string('state')->nullable();
+            $table->string('state')->default('Activo');
         });
     }
 
