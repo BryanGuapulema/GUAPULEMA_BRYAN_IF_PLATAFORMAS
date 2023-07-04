@@ -42,7 +42,7 @@ class RoleController extends Controller
         $role->save();
 
 
-        return view('roles.listar')->with('success', 'Rol creado exitosamente');
+        return redirect('/roles');
     }
 
     /**
@@ -68,7 +68,7 @@ class RoleController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name'=>'required|unique:roles,name'.$id,
+            'name'=>'required|unique:roles,name,'.$id,
             'institution'=>'required',
             'state'=> 'required'
         ]);
@@ -80,7 +80,8 @@ class RoleController extends Controller
         $role->save();
 
 
-        return view('roles.listar')->with('success', 'Rol editado exitosamente');
+        ///return view('roles.listar')->with('success', 'Rol editado exitosamente');
+        return redirect('/roles')->with('success', 'Cuenta actualizada exitosamente'); 
     }
 
     /**

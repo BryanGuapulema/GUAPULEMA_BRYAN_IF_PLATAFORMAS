@@ -30,19 +30,19 @@
             </div>
 
             <div class="mb-3 row">
-                <label for="institucion" class="col-sm-2 col-form-label">Institucion</label>
+                <label for="institution" class="col-sm-2 col-form-label">Institucion</label>
                 <div class="col-sm-5">
                     <input class="form-control" type="text" name="institution" id="institution" value="{{old ('institution')}}" required>
                 </div>
             </div>
 
             <div class="mb-3 row">
-                <label for="estado" class="col-sm-2 col-form-label">Estado</label>
+                <label for="state" class="col-sm-2 col-form-label">Estado</label>
                 <div class="col-sm-5">
                     <select class="form-select" name="state" id="state" value="{{old ('state')}}" required>
                         <option value="" >Seleccione el estado</option>
-                        <option value="state">Activo</option>
-                        <option value="state">Inactivo</option>
+                        <option value="Activo">Activo</option>
+                        <option value="Inactivo">Inactivo</option>
                     </select>
                 </div>
             </div>

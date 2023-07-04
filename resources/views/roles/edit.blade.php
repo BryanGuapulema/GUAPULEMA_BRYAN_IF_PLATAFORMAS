@@ -37,16 +37,21 @@
                 </div>
             </div>
 
+
             <div class="mb-3 row">
-                <label for="estado" class="col-sm-2 col-form-label">Estado</label>
+                <label for="state" class="col-sm-2 col-form-label">Estado</label>
                 <div class="col-sm-5">
-                    <select class="form-select" name="state" id="state" value="{{$role->state}}" required>
-                        <option value="" >Seleccione el estado</option>
-                        <option value="state">Activo</option>
-                        <option value="state">Inactivo</option>
+                    <select name="state" id="state" class="form-select" required>
+                        <option value="">Seleccionar estado</option>
+                        <option value="Activo" {{ $role->state == 'Activo' ? 'selected' : '' }}>Activo</option>
+                        <option value="Inactivo" {{ $role->state == 'Inactivo' ? 'selected' : '' }}>Inactivo</option>
                     </select>
-                </div>
+                </div>   
+                @if ($errors->has('state'))
+                    <span class="text-danger text-left">{{ $errors->first('state') }}</span>
+                @endif   
             </div>
+
             <a href="{{url('roles')}}" class="btn btn-secondary">Regresar</a>
             <button type="submit" class="btn btn-success">Guardar</button>
         </form>        

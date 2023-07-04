@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('institution');   
             $table->string('state')->default('Activo');
+            $table->timestamps();
         });
     }
 
