@@ -28,7 +28,7 @@
 
             <tbody>
                 @foreach($users as $user)
-                <tr>                    
+                <tr @if ($user->state === 'Inactivo') class="table-danger" @endif>                    
                     <td>{{$user->id}}</td>
                     <td>{{$user->name}}</td>
                     <td>{{$user->username}}</td>

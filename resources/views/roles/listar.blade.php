@@ -26,7 +26,7 @@
 
             <tbody>
                 @foreach($roles as $role)
-                <tr>                    
+                <tr @if ($role->state === 'Inactivo') class="table-danger" @endif>                    
                     <td>{{$role->id}}</td>
                     <td>{{$role->name}}</td>
                     <td>{{$role->institution}}</td>
