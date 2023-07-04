@@ -93,4 +93,13 @@ class RoleController extends Controller
         $role->delete();
         return redirect("roles");
     }
+    
+    public function updateState(Role $role)
+    {
+        $role->state = $role->state === 'activo' ? 'inactivo' : 'activo';
+        $role->save();
+
+        return redirect("roles");
+    }
+
 }

@@ -39,15 +39,14 @@
                                     Editar
                                 </a>
                             </form>
-
-<!--
-
-                            <form action="{{url('roles/'. $role->id)}}" method="post">
-                                @method('PUT')
+                                                     
+                            <form method="POST" action="{{url('roles/'. $role->id.'/update-state')}}   ">
                                 @csrf
-                                <button type="submit" class="btn btn-warning btn-sm">Cambiar Estado</button>
-                            </form>
--->                    
+                                @method('PUT')
+                                <button type="submit" class="btn btn-warning btn-sm">
+                                    Cambiar Estado
+                                </button>
+                            </form>                           
 
                             <form action="{{url('roles/'. $role->id)}}" method="post">
                                 @method('DELETE')

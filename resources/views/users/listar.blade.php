@@ -38,16 +38,28 @@
                     <td>{{$user->email}}</td> 
                     <td>{{$user->state}}</td>               
                     <td>
-                        <a href="{{url('users/' .$user->id .'/edit')}}" class="btn btn-warning btn-sm">
-                            Editar
-                        </a>
-                    </td>
-                    <td>
-                        <form action="{{url('users/'. $user->id)}}" method="post">
-                            @method('DELETE')
-                            @csrf
-                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                        </form>
+                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                            <form>
+                                <a href="{{url('users/' .$user->id .'/edit')}}" class="btn btn-success btn-sm">
+                                    Editar
+                                </a>
+                            </form>
+                            
+
+                            <form method="POST" action="{{url('users/'. $user->id.'/update-state')}}   ">
+                                    @csrf
+                                    @method('PUT')
+                                    <button type="submit" class="btn btn-warning btn-sm">
+                                        Cambiar Estado
+                                    </button>
+                            </form> 
+
+                            <form action="{{url('users/'. $user->id)}}" method="post">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
                 @endforeach

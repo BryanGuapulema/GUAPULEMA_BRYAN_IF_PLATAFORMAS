@@ -38,6 +38,9 @@ Route::resource('/users',UserController::class);
 
 Route::resource('/roles',RoleController::class);
 
+Route::put('/roles/{role}/update-state', [RoleController::class, 'updateState']);
+Route::put('/users/{user}/update-state', [UserController::class, 'updateState']);
+
 
 // Rutas de verificación de correo electrónico
 Route::get('/email/verify', function () {
