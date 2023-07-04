@@ -88,7 +88,7 @@ class UserController extends Controller
 
     public function updateState(User $user)
     {
-        $user->state = $user->state === 'activo' ? 'inactivo' : 'activo';
+        $user->state = $user->state === 'Activo' ? 'Inactivo' : 'Activo';
         $user->save();
 
         return redirect("users");

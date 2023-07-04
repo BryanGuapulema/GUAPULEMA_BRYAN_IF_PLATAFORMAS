@@ -96,7 +96,7 @@ class RoleController extends Controller
     
     public function updateState(Role $role)
     {
-        $role->state = $role->state === 'activo' ? 'inactivo' : 'activo';
+        $role->state = $role->state === 'Activo' ? 'Inactivo' : 'Activo';
         $role->save();
 
         return redirect("roles");
