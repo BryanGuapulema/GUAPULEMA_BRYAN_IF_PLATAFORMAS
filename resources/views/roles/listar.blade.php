@@ -3,6 +3,8 @@
 @section('title','LISTA DE ROLES')
 
 @section('contenido')
+@include('layouts.partials.navbar')  
+
 
 <main>
     <div class="container py-4 ">

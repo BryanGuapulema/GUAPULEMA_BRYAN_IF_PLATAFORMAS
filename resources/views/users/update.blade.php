@@ -3,6 +3,8 @@
 @section('title','ACTUALIZACIÓN')
 
 @section('contenido')
+@include('layouts.partials.navbar')  
+
 
 <main>
     <div class="container mt-5">

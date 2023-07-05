@@ -6,6 +6,7 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\Usercontroller;
+use App\Http\Controllers\UserRoleController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -41,6 +42,7 @@ Route::resource('/roles',RoleController::class);
 Route::put('/roles/{role}/update-state', [RoleController::class, 'updateState']);
 Route::put('/users/{user}/update-state', [UserController::class, 'updateState']);
 
+Route::get('/users_roles', [UserRoleController::class, 'index']);
 
 // Rutas de verificación de correo electrónico
 Route::get('/email/verify', function () {
