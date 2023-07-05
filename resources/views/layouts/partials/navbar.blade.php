@@ -19,6 +19,7 @@
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="/users">Usuarios</a></li>
                 <li><a class="dropdown-item" href="/roles">Roles</a></li>
+                <li><a class="dropdown-item" href="/users_roles">Usuarios-Roles</a></li>
               </ul>
             </div>
           </li> 
