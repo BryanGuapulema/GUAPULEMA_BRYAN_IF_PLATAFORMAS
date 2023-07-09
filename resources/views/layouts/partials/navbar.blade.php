@@ -24,8 +24,7 @@
             </div>
           </li> 
         @endif     
-      </ul>
-        
+      </ul>        
                     
         <div class="btn-group">
           <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">

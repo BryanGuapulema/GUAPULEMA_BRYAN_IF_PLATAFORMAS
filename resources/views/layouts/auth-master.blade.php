@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <title>Signin Template · Bootstrap v5.1</title>
+    <title>Laravel app</title>
     <!-- Bootstrap core CSS -->
     <link href="{!! url('assets/css/bootstrap.min.css') !!}" rel="stylesheet">
     <style>
