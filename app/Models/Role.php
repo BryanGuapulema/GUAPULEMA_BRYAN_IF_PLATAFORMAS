@@ -17,7 +17,7 @@ class Role extends Model
 
         static::updating(function ($role) {
             if ($role->state === 'Inactivo') {
-                $userIds = $role->users()->pluck('id');
+                $userIds = $role->user()->pluck('id');
                 $users = User::whereIn('id', $userIds)->get();
                 
                 foreach ($users as $user) {
