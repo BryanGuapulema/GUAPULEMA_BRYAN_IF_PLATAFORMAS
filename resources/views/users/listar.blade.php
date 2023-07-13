@@ -42,8 +42,10 @@
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                             <form>
-                                <a href="{{url('users/' .$user->id .'/edit')}}" class="btn btn-success btn-sm">
-                                    Editar
+                                <a href="{{url('users/' .$user->id .'/edit')}}" class="btn btn-success btn-sm"  
+                                    style="pointer-events: none; cursor: default;"
+                                    {{ $user->state === 'Inactivo' ? 'disabled' : '' }}>
+                                Editar
                                 </a>
                             </form>
                             
@@ -51,7 +53,7 @@
                             <form method="POST" action="{{url('users/'. $user->id.'/update-state')}}   ">
                                     @csrf
                                     @method('PUT')
-                                    <button type="submit" class="btn btn-warning btn-sm">
+                                    <button type="submit" class="btn btn-warning btn-sm"  {{ $user->state === 'Inactivo' ? 'disabled' : '' }}>
                                         Cambiar Estado
                                     </button>
                             </form> 
@@ -59,7 +61,9 @@
                             <form action="{{url('users/'. $user->id)}}" method="post">
                                 @method('DELETE')
                                 @csrf
-                                <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                <button type="submit" class="btn btn-danger btn-sm"  {{ $user->state === 'Inactivo' ? 'disabled' : '' }}>
+                                    Eliminar
+                                </button>
                             </form>
                         </div>
                     </td>
