@@ -16,7 +16,9 @@ class RegisterController extends Controller
             return redirect('/home');
         }
 
-        return view('auth.register');
+        $activeRoles = Role::where('state', 'Activo')->get();
+
+        return view('auth.register', compact('activeRoles'));        
     }
 
     //use of an request object for specific controller

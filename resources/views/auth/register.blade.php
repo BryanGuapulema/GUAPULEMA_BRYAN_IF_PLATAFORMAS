@@ -35,12 +35,12 @@
             <label for="floatingName"></label>
             <div class="form-group form-floating mb-3">
                 <select name="role" id="role" class="form-select" required>
-                    <option value="">Seleccionar rol</option>                
-                    @foreach (\App\Models\Role::all() as $role)
-                        <option value="{{ $role->id }}" <?php  echo $role->name ==='Administrador'  ? 'disabled' : ''; ?>>
+                    <option value="">Seleccionar rol</option>  
+                    @foreach ($activeRoles as $role)
+                    <option value="{{ $role->id }}" <?php  echo $role->name ==='Administrador'  ? 'disabled' : ''; ?>>
                             {{ $role->name }}
-                        </option>                    
-                    @endforeach
+                        </option>
+                    @endforeach               
                 </select>
             </div>   
             @if ($errors->has('role'))
