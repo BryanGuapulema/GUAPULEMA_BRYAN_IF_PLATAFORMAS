@@ -24,6 +24,14 @@ class Role extends Model
                     app('App\Http\Controllers\UserController')->updateState($user);
                 }
             }
+            if ($role->state === 'Activo') {
+                $userIds = $role->user()->pluck('id');
+                $users = User::whereIn('id', $userIds)->get();
+                
+                foreach ($users as $user) {
+                    app('App\Http\Controllers\UserController')->updateState($user);
+                }
+            }
         });
     }
 
