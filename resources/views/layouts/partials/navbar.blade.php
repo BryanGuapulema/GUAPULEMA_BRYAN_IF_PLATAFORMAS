@@ -21,6 +21,8 @@
                 <li><a class="dropdown-item" href="/roles">Roles</a></li>
                 <li><a class="dropdown-item" href="/users_roles">Usuarios-Roles</a></li>
                 <li><a class="dropdown-item" href="/employees">Empleados</a></li>
+                <li><a class="dropdown-item" href="/degrees">Carreras</a></li>
+                <li><a class="dropdown-item" href="/periods">Periodos</a></li>
               </ul>
             </div>
           </li> 
