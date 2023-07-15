@@ -44,6 +44,7 @@ Route::resource('employees', EmployeeController::class);
 
 Route::put('/roles/{role}/update-state', [RoleController::class, 'updateState']);
 Route::put('/users/{user}/update-state', [UserController::class, 'updateState']);
+Route::put('/employees/{employee}/update-state', [EmployeeController::class, 'updateState']);
 
 Route::get('/users_roles', [UserRoleController::class, 'index']);
 
@@ -54,13 +55,11 @@ Route::get('/email/verify', function () {
 
 Route::get('/email/verify/{id}/{hash}', function (\Illuminate\Foundation\Auth\EmailVerificationRequest $request) {
     $request->fulfill();
-
     return redirect('/home');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::post('/email/verification-notification', function (\Illuminate\Http\Request $request) {
     $request->user()->sendEmailVerificationNotification();
-
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 

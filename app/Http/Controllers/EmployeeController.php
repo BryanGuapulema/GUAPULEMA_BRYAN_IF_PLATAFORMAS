@@ -77,5 +77,13 @@ class EmployeeController extends Controller
         $employee->delete();
         return redirect("employees");
     }
+
+    public function updateState(Employee $employee)
+    {
+        $employee->state = $employee->state === 'Activo' ? 'Inactivo' : 'Activo';
+        $employee->save();
+
+        return redirect()->route('employees.index');
+    }
 }
 

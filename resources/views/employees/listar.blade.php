@@ -54,7 +54,13 @@
                                 </a>
                             </form>                                                                           
 
-
+                            <form method="POST" action="{{url('employees/'. $employee->id.'/update-state')}}">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit" class="btn btn-warning btn-sm">
+                                    Estado
+                                </button>
+                            </form>
 
                             <form action="{{url('employees/'. $employee->id)}}" method="post">
                                 @method('DELETE')
