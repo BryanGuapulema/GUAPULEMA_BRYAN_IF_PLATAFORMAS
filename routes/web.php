@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
@@ -38,6 +39,8 @@ Route::get('/logout', [LogoutController::class, 'logout']);
 Route::resource('/users',UserController::class);
 
 Route::resource('/roles',RoleController::class);
+
+Route::resource('employees', EmployeeController::class);
 
 Route::put('/roles/{role}/update-state', [RoleController::class, 'updateState']);
 Route::put('/users/{user}/update-state', [UserController::class, 'updateState']);
