@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DegreeController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\EmployeeDegreeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
@@ -52,8 +53,11 @@ Route::put('/employees/{employee}/update-state', [EmployeeController::class, 'up
 Route::put('/degrees/{degree}/update-state', [DegreeController::class, 'updateState']);
 Route::put('/periods/{period}/update-state', [PeriodController::class, 'updateState']);
 
+
 //tablas intermedias
 Route::get('/users_roles', [UserRoleController::class, 'index']);
+Route::resource('/employee_degrees', EmployeeDegreeController::class);
+
 
 // Rutas de verificación de correo electrónico
 Route::get('/email/verify', function () {

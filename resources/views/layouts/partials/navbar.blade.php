@@ -23,6 +23,8 @@
                 <li><a class="dropdown-item" href="/employees">Empleados</a></li>
                 <li><a class="dropdown-item" href="/degrees">Carreras</a></li>
                 <li><a class="dropdown-item" href="/periods">Periodos</a></li>
+                <li><a class="dropdown-item" href="/employee_degrees">Relaciones E-C-P</a></li>
+                
               </ul>
             </div>
           </li> 
