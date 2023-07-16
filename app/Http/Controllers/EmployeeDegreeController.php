@@ -80,5 +80,14 @@ public function edit($id)
         $employeeDegree = EmployeeDegree::findOrFail($id);
         $employeeDegree->delete();
 
-        return redirect()->route('employee_degrees.index');    }
+        return redirect()->route('employee_degrees.index');    
+    }
+
+    public function updateState(EmployeeDegree $employeeDegree)
+    {
+        $employeeDegree->state = $employeeDegree->state === 'Activo' ? 'Inactivo' : 'Activo';
+        $employeeDegree->save();
+
+        return redirect()->route('employees.index');
+    }
 }

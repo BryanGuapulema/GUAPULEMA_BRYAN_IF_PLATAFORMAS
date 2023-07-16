@@ -13,4 +13,33 @@ class Period extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function employeeDegrees()
+    {
+        return $this->hasMany(EmployeeDegree::class, 'id_period');            
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::updating(function ($period) {            
+            if ($period->state === 'Inactivo') {
+                $listaIds = $period->employeeDegrees()->pluck('id');  
+                $employeeDegrees = EmployeeDegree::whereIn('id', $listaIds)->get();
+                
+                foreach ($employeeDegrees as $employeeDegree) {
+                    app('App\Http\Controllers\EmployeeDegreeController')->updateState($employeeDegree);
+                }
+            }else if ($period->state === 'Activo') 
+            {
+                $listaIds = $period->employeeDegrees()->pluck('id');
+                $employeeDegrees = EmployeeDegree::whereIn('id', $listaIds)->get();
+                
+                foreach ($employeeDegrees as $employeeDegree) {
+                    app('App\Http\Controllers\EmployeeDegreeController')->updateState($employeeDegree);
+                }
+            }
+        });
+    }
 }
