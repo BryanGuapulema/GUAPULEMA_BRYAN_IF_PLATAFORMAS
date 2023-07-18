@@ -43,8 +43,21 @@
                     <td>{{$employee->state}}</td>
                     <td>{{$employee->last_logging_at}}</td>   
                     <td>{{$employee->created_at}}</td>
-                    <td>{{$employee->updated_at}}</td>
-                    <td>NULL</td>    
+                    <td>{{$employee->updated_at}}</td>                    
+                    @php
+                        $username = null;
+                        foreach (\App\Models\User::all() as $user) {
+                            if ($user->id === $employee->user_modifica) {
+                                $username = $user->username;
+                                break;
+                            }else{
+                                $username = "Sin modificar";
+                            }
+                        }
+                    @endphp
+                    <td>{{ $username }}</td>
+
+
                     <td></td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">

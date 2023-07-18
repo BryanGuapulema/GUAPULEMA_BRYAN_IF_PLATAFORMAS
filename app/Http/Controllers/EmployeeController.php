@@ -5,12 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Employee;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class EmployeeController extends Controller
 {
     public function index()
     {
-        $employees = Employee::all();        
+        //$employees = Employee::all();   
+        $employees = Employee::with('user')->get();     
         return view('employees.listar', compact('employees'));
     }
 
@@ -66,6 +69,12 @@ class EmployeeController extends Controller
         $employee->lastname = $request->input('lastname');
         $employee->firstname = $request->input('firstname');
         $employee->user_id = $request->input('user_id');
+
+        // Obtener el id del usuario autenticado        
+        $user_id = Auth::id();        
+
+        // Asignar al campo 'usermodifica'    
+        $employee->user_modifica = $user_id;
         $employee->save();
 
         return redirect()->route('employees.index');
