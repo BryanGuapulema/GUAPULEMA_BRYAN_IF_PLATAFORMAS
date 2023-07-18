@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Period extends Model
 {
     use HasFactory;
-
+    
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_modifica');
     }
 
     public function employeeDegrees()

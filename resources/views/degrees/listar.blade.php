@@ -38,7 +38,18 @@
                     <td>{{$degree->state}}</td>
                     <td>{{$degree->created_at}}</td>
                     <td>{{$degree->updated_at}}</td>
-                    <td>NULL</td>    
+                    @php
+                        $username = null;
+                        foreach (\App\Models\User::all() as $user) {
+                            if ($user->id === $degree->user_modifica) {
+                                $username = $user->username;
+                                break;
+                            }else{
+                                $username = "Sin modificar";
+                            }
+                        }
+                    @endphp
+                    <td>{{ $username }}</td>    
                     <td></td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">

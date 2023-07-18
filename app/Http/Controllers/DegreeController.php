@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Degree;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DegreeController extends Controller
 {
     public function index()
     {
-        $degrees = Degree::all();
+        $degrees = Degree::with('user')->get();
         return view('degrees.listar', compact('degrees'));
     }
 
@@ -49,6 +50,12 @@ class DegreeController extends Controller
         $degree = Degree::findOrFail($id);
         $degree->degree_name = $request->input('degree_name');
         $degree->faculty = $request->input('faculty');
+        // Obtener el id del usuario autenticado        
+        $user_id = Auth::id();        
+
+        // Asignar al campo 'usermodifica'    
+        $degree->user_modifica = $user_id;
+        $degree->save();
         $degree->save();
 
         return redirect()->route('degrees.index');        
