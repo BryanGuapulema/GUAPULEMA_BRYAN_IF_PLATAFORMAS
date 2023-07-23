@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Period;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PeriodController extends Controller
 {
     public function index()
     {
-        $periods = Period::all();
+        $periods = Period::with('user')->get();   
         return view('periods.listar', compact('periods'));
     }
 
@@ -55,6 +56,11 @@ class PeriodController extends Controller
         $period->period_name = $request->input('period_name');
         $period->start_date = $request->input('start_date');
         $period->end_date = $request->input('end_date');
+
+        $user_id = Auth::id();        
+        // Asignar al campo 'usermodifica'    
+        $period->user_modifica = $user_id;
+
         $period->save();
 
         return redirect()->route('periods.index');

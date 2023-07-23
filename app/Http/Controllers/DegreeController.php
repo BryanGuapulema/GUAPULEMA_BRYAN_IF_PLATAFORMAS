@@ -55,7 +55,7 @@ class DegreeController extends Controller
 
         // Asignar al campo 'usermodifica'    
         $degree->user_modifica = $user_id;
-        $degree->save();
+        #$degree->save();
         $degree->save();
 
         return redirect()->route('degrees.index');        
