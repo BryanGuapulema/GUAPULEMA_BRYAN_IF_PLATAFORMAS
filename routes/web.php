@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DegreeController;
+use App\Http\Controllers\EmployeeActivityController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\EmployeeDegreeController;
 use App\Http\Controllers\HomeController;
@@ -45,6 +46,7 @@ Route::resource('/roles',RoleController::class);
 Route::resource('/employees', EmployeeController::class);
 Route::resource('/degrees', DegreeController::class);
 Route::resource('/periods', PeriodController::class);
+Route::resource('/employee_activity', EmployeeActivityController::class);
 
 //actualizacion de estado en CRUDs
 Route::put('/roles/{role}/update-state', [RoleController::class, 'updateState']);
