@@ -19,7 +19,8 @@ class EmployeeActivityController extends Controller
                 
         $url = 'https://localhost:44356/api/EmployeeActiviries';
         $response = $client->get($url);
-        $data = json_decode($response->getBody(), true);                   
+        $data = json_decode($response->getBody(), true); 
+        //dd($data);
 
         return view('examen.listar',compact('data'));
 

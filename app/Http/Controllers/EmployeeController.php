@@ -6,6 +6,8 @@ use App\Models\Employee;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use GuzzleHttp\Client;
+
 
 
 class EmployeeController extends Controller
@@ -74,7 +76,7 @@ class EmployeeController extends Controller
         $user_id = Auth::id();        
 
         // Asignar al campo 'usermodifica'    
-        $employee->user_modifica = $user_id;
+        $employee->user_modifica = $user_id;                
         $employee->save();
 
         return redirect()->route('employees.index');
@@ -91,6 +93,35 @@ class EmployeeController extends Controller
     {
         $employee->state = $employee->state === 'Activo' ? 'Inactivo' : 'Activo';
         $employee->save();
+
+         // Actualizar el campo "state" en la tabla de actividades de empleados ("EmployeeActivities") a través de la API
+         $client = new Client([
+            'verify' => false,
+        ]);
+
+        $id = $employee->id;        
+        $url = 'https://localhost:44356/api/EmployeeActiviries?idEmployee=' . $id;
+        $response = $client->get($url);
+        $employeeActivities = json_decode($response->getBody(), true);
+        //dd($employeeActivities);
+
+        foreach ($employeeActivities as $activity) {
+            if( $activity['idEmployee'] === $employee->id){
+                $activityUrl = 'https://localhost:44356/api/EmployeeActiviries/' . $activity['idEmpAct'];
+                $activityResponse = $client->put($activityUrl, [
+                    'json' => [                    
+                        'idEmpAct' => $activity['idEmpAct'],
+                        'idEmployee' => $activity['idEmployee'],
+                        'employeeName' => $activity['employeeName'],
+                        'activity' => $activity['activity'],
+                        'start_date' => $activity['start_date'],
+                        'end_date' => $activity['end_date'],                            
+                        'state' => $employee->state,
+                    ],
+                ]);
+            }                    
+        }
+        
 
         return redirect()->route('employees.index');
     }

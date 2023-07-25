@@ -30,8 +30,8 @@
             </thead>
 
             <tbody>
-            @foreach($data as $employeeActivity)
-            <tr>                                    
+            @foreach($data as $employeeActivity)            
+            <tr @if ($employeeActivity['state'] === "Inactivo            ") class="table-danger" @endif>                                    
                     <td>{{$employeeActivity["idEmpAct"]}}</td>
                     <td>{{$employeeActivity["idEmployee"]}}</td>
                     <td>{{$employeeActivity["employeeName"]}}</td>

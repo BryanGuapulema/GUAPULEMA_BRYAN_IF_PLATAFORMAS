@@ -42,14 +42,14 @@
             <div class="mb-3 row">
                 <label for="start_date" class="col-sm-2 col-form-label">Fecha Inicio</label>
                 <div class="col-sm-5">
-                    <input class="form-control" type="date" name="start_date" id="start_date" value="{{$data['start_date']}}" required>
+                    <input class="form-control" type="date" name="start_date" id="start_date" value="{{ date('Y-m-d', strtotime($data['start_date'])) }}" required>
                 </div>
             </div>
 
             <div class="mb-3 row">
                 <label for="end_date" class="col-sm-2 col-form-label">Fecha Fin</label>
                 <div class="col-sm-5">
-                    <input class="form-control" type="date" name="end_date" id="end_date" value="{{$data['end_date']}}" required>
+                    <input class="form-control" type="date" name="end_date" id="end_date" value="{{ date('Y-m-d', strtotime($data['end_date'])) }}" required>
                 </div>
             </div>
 
